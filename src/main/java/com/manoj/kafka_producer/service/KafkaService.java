@@ -13,7 +13,7 @@ public class KafkaService {
     KafkaTemplate<String, Object> kafkaTemplate;
 
     public void sendMessage(String message) {
-        CompletableFuture<SendResult<String, Object>> response = kafkaTemplate.send("mca2", message);
+        CompletableFuture<SendResult<String, Object>> response = kafkaTemplate.send("mca3", message);
         response.whenComplete((res, ex) -> {
             if (ex != null) {
                 System.out.println("Sent message =[ " + message + " ] with offset= [ " + res.getRecordMetadata().offset() + " ]");
